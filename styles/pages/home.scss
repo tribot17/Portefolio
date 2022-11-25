@@ -1,0 +1,52 @@
+.home {
+  display: flex;
+  flex-direction: row;
+
+  .profile_img {
+    border-radius: 61px;
+    margin-left: 10%;
+  }
+
+  .main_text {
+    margin-top: auto;
+    margin-bottom: auto;
+    margin-left: 10%;
+
+    h2 {
+      font-size: 40px;
+    }
+    h3 {
+      font-size: 30px;
+    }
+
+    .cv_button {
+      display: grid;
+      grid-template-columns: 60% 40%;
+      margin-top: 10%;
+      width: 150px;
+      height: 60px;
+      border-radius: 15px;
+      border: none;
+      background-color: #f0e0a8;
+      transition: 0.5s;
+
+      &:hover {
+        background-color: #d7c585;
+      }
+
+      .cv_button_text {
+        font-size: 20px;
+        width: 100%;
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 15%;
+      }
+
+      .cv_button_logo {
+        margin-top: auto;
+        margin-bottom: auto;
+        margin-left: 30%;
+      }
+    }
+  }
+}

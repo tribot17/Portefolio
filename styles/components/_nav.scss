@@ -1,0 +1,29 @@
+.navbar{
+    position: absolute;
+    display: flex;
+    transition: 0.5s;
+    width: 92px;
+    height: 361px;
+    right: 0;
+    top: 30%;
+    margin-right: 5%;
+    border-radius: 25px;
+    box-shadow: 1px 1px 35px 5px rgba(118, 122, 122, 0.19);
+
+    &:hover{
+    box-shadow: 1px 1px 35px 5px rgba(0, 0, 0, 0.19);
+
+
+    }
+
+    .navbar_logo_list{
+        height: 100%;
+        display: grid;
+        margin: auto;
+        grid-template-rows: 33% 33% 33%;
+
+        li{
+            margin: auto;
+        }
+    }
+}

@@ -1,0 +1,61 @@
+.experiences {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .experiences_container {
+    display: flex;
+    position: relative;
+    background-color: white;
+    width: 1200px;
+    height: 592px;
+    margin-right: 10%;
+    border-radius: 112px;
+    box-shadow: 1px 1px 35px 5px rgba(118, 122, 122, 0.19);
+    align-items: center;
+    justify-content: center;
+
+    .experiences_text {
+      width: 60%;
+      text-align: center;
+      line-break: auto;
+      white-space: pre-line;
+      line-height: 40px;
+
+      .skills_display_animation{
+        transition: 1s ease;
+      }
+
+      .skills_display {
+        display: flex;
+        width: 60%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: auto;
+      }
+
+      .arrow_up {
+        position: absolute;
+        top: 0;
+        transition: 0.5s;
+
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.10);
+        }
+      }
+
+      .arrow_down {
+        position: absolute;
+        bottom: 0;
+        transition: 0.5s;
+        margin-right: 50px;
+        &:hover {
+          cursor: pointer;
+          transform: scale(1.10);
+        }
+      }
+    }
+  }
+}

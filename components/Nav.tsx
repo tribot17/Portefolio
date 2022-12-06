@@ -40,8 +40,6 @@ const Nav = () => {
     if (Router.pathname == "/Contact") setActualPage("contact");
     if (Router.pathname == "/Experiences") setActualPage("experiences");
     if (Router.pathname == "/Swap") setActualPage("swap");
-
-
   }, [Router]);
 
   const DisplayLogo = () => {
@@ -53,8 +51,8 @@ const Nav = () => {
             <Image
               src={`/images/${toLoad.logo_1}.png`}
               alt={`${toLoad.logo_1}_logo`}
-              width={34}
-              height={56}
+              width={actualPage == "swap" ? 52 : 34}
+              height={actualPage == "swap" ? 51 : 56}
             />
           </Link>
         </li>
@@ -85,8 +83,8 @@ const Nav = () => {
   return (
     <motion.div
       transition={{ duration: 1 }}
-      initial={{ opacity: 0,  }}
-      animate={{ opacity: 1,  }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
     >
       <div className="navbar">
         <ul className="navbar_logo_list">

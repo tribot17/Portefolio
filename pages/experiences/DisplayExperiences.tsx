@@ -1,13 +1,8 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
-export interface experience {
-  title: string;
-  compagny: string;
-  time: string;
-  description: string;
-  skills: object[];
-}
+import { experience } from "../../interfaces/interface";
+
 
 const DisplayExperiences = (exp: experience) => {
   return (

@@ -2,15 +2,14 @@
 @import "./components/header";
 @import "./components/border";
 @import "./components/nav";
-@import "./pages/home.scss";
+@import "./pages/home";
 @import "./pages/experiences";
+@import "./pages/contact";
+@import "./pages/swap";
 @import "./normalize";
 
-
-
-
-@import url('https://fonts.googleapis.com/css2?family=Syncopate&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nabla&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Silkscreen&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Aboreto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Syncopate&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nabla&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Silkscreen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&display=swap");

@@ -3,8 +3,11 @@
   flex-direction: row;
 
   .profile_img {
-    border-radius: 61px;
     margin-left: 10%;
+
+    img {
+      border-radius: 61px;
+    }
   }
 
   .main_text {
@@ -44,6 +47,7 @@
 
       .cv_button_logo {
         margin-top: auto;
+
         margin-bottom: auto;
         margin-left: 30%;
       }

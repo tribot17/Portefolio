@@ -1,0 +1,137 @@
+.swap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .swap_container {
+    display: flex;
+    background-color: white;
+    width: 1200px;
+    height: 592px;
+    margin-right: 10%;
+    border-radius: 112px;
+    box-shadow: 1px 1px 35px 5px rgba(118, 122, 122, 0.19);
+    justify-content: center;
+
+    .swap_text {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+
+      .swap_input {
+        display: flex;
+        margin: auto;
+        flex-direction: column;
+
+        .input_and_token {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          border: 2px solid rgba(0, 0, 0, 0.618);
+          border-radius: 25px;
+          padding: 10px;
+
+          input {
+            width: 456px;
+            height: 53px;
+            font-weight: 400;
+            font-size: 28px;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            outline: none;
+          }
+
+          input::-webkit-outer-spin-button,
+          input::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+          }
+
+          input[type="number"] {
+            -moz-appearance: textfield;
+          }
+
+          input:active {
+            outline: none;
+          }
+
+          input:last-child {
+            margin-top: 25px;
+          }
+          .select_token {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            #arrow_down {
+              margin-right: 15px;
+            }
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+        .input_and_token:last-child {
+          margin-top: 50px;
+        }
+      }
+    }
+  }
+}
+
+.token_modal {
+  position: fixed;
+  display: flex;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  backdrop-filter: blur(10px);
+  background-color: rgba(141, 139, 139, 0.209);
+  align-items: center;
+  justify-content: center;
+
+  .token_choice_container {
+    width: 20%;
+    position: relative;
+    height: 500px;
+    border-radius: 25px;
+    // text-align: center;
+    background-color: white;
+
+    ul {
+      margin-top: 25px;
+      li {
+        display: grid;
+        grid-template-columns: 20% 80%;
+        padding: 15px;
+        transition: 1s;
+        .token_text {
+          display: flex;
+          // align-items: center;
+          justify-content: center;
+          flex-direction: column;
+
+          p {
+            margin-top: 5px;
+          }
+        }
+
+        &:hover {
+          cursor: pointer;
+          background-color: rgb(215, 215, 215);
+        }
+      }
+    }
+    .token_modal_close_button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      margin-top: 15px;
+      margin-right: 25px;
+      cursor: pointer;
+    }
+  }
+}

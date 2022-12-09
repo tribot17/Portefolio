@@ -5,7 +5,9 @@
   width: 92px;
   height: 361px;
   right: 0;
-  top: 30%;
+  top: 50%;
+  transform: translate(0, -50%);
+
   margin-right: 5%;
   border-radius: 25px;
   box-shadow: 1px 1px 35px 5px rgba(118, 122, 122, 0.19);
@@ -28,5 +30,12 @@
         cursor: pointer;
       }
     }
+  }
+}
+
+//Responsive
+@media screen and (max-width: 1550px) {
+  .navbar {
+    margin-right: 2%;
   }
 }

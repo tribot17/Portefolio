@@ -1,3 +1,11 @@
-.header{
-    height: 195px;
+.header {
+  height: 195px;
+}
+
+@media screen and (min-width: 1921px) {
+  .header {
+    img {
+      width: 2560px !important;
+    }
+  }
 }

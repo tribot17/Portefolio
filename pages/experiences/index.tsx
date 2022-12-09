@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
-import DisplayExperiences, { experience } from "./DisplayExperiences";
+import DisplayExperiences from "./DisplayExperiences";
 import { expArray } from "../../data/experience";
 import { motion } from "framer-motion";
 
@@ -19,8 +19,8 @@ const Experience = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -200 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, y: "-200px" }}
+      animate={{ opacity: 1, y: "0px"  }}
       transition={{ duration: 0.5 }}
     >
       <div className="experiences">

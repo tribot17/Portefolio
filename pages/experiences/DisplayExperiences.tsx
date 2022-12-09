@@ -3,7 +3,6 @@ import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { experience } from "../../interfaces/interface";
 
-
 const DisplayExperiences = (exp: experience) => {
   return (
     <motion.div

@@ -1,8 +1,15 @@
-.left_border{
-    position: absolute;
-    top: 0;
-    z-index: -1;
-    width: 310px;
-    height: 100vh;
-    background-color: #d9d9d984;
+.left_border {
+  position: absolute;
+  top: 0;
+  z-index: -1;
+  width: 310px;
+  height: 97vh;
+  background-color: #d9d9d984;
+}
+
+//Responsive
+@media screen and (max-width: 1550px) {
+  .left_border {
+    width: 210px;
+  }
 }

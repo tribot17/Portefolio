@@ -1,11 +1,17 @@
 .home {
   display: flex;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translate(0, -50%);
   flex-direction: row;
 
   .profile_img {
     margin-left: 10%;
 
     img {
+      width: 412px !important;
+      height: 499px !important;
       border-radius: 61px;
     }
   }
@@ -50,6 +56,87 @@
 
         margin-bottom: auto;
         margin-left: 30%;
+      }
+    }
+  }
+}
+
+//Responsive
+@media screen and (max-width: 1550px) {
+  .home {
+    .profile_img {
+      margin-left: 5%;
+    }
+
+    .main_text {
+      margin-left: 5%;
+    }
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .home {
+    .profile_img {
+      margin-left: 5%;
+
+      img {
+        width: 300px !important;
+        height: 350px !important;
+      }
+    }
+
+    .main_text {
+      margin-left: 5%;
+
+      h2 {
+        font-size: 35px;
+      }
+      h3 {
+        font-size: 25px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1080px) {
+  .home {
+    .profile_img {
+      img {
+        width: 250px !important;
+        height: 300px !important;
+      }
+    }
+
+    .main_text {
+      h2 {
+        font-size: 32px;
+      }
+      h3 {
+        font-size: 22px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1020px) {
+  .home {
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .home {
+    .profile_img {
+      margin-left: 3%;
+    }
+
+    .main_text {
+      margin-left: 3%;
+
+      h2 {
+        font-size: 30px;
+      }
+      h3 {
+        font-size: 20px;
       }
     }
   }

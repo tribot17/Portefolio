@@ -10,7 +10,7 @@
     display: flex;
     position: relative;
     background-color: white;
-    width: 1200px;
+    width: 65%;
     height: 592px;
     margin-right: 10%;
     border-radius: 112px;
@@ -42,6 +42,7 @@
         position: absolute;
         top: 0;
         transition: 0.5s;
+        transform: translate(-50%, 0%);
 
         &:hover {
           cursor: pointer;
@@ -53,12 +54,82 @@
         position: absolute;
         bottom: 0;
         transition: 0.5s;
-        margin-right: 50px;
+        transform: translate(-50%, 0%);
+        // margin-right: 50px;
         &:hover {
           cursor: pointer;
           transform: scale(1.1);
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 1350px) {
+  .experiences {
+    .experiences_container {
+      width: 70%;
+      .experiences_text {
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .experiences {
+    .experiences_container {
+      width: 75%;
+      .experiences_text {
+        line-height: 35px;
+        width: 80%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .experiences {
+    .experiences_container {
+      height: 650px;
+      .experiences_text {
+        line-height: 35px;
+        width: 80%;
+
+        .skills_display {
+          width: 80%;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .experiences {
+    .experiences_container {
+      .experiences_text {
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .experiences {
+    .experiences_container {
+      margin-right: 0;
+
+      // .arrow_up {
+      //   position: absolute;
+      //   margin-right: -50px;
+
+      // }
+
+      // .arrow_down {
+      //   position: absolute;
+      //   margin-right: 50px;
+
+      // }
     }
   }
 }

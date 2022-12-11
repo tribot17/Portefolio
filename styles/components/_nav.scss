@@ -39,3 +39,37 @@
     margin-right: 2%;
   }
 }
+
+
+@media screen and (max-width: 800px) {
+  .navbar {
+      width: 75px;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+  .navbar {
+    position: fixed;
+
+    display: flex;
+    transition: 0.5s;
+    width: 250px;
+    height: 90px;
+    align-items: center;
+    top: 65px;
+    margin-right: 50%;
+    transform: translate(50%, -50%);
+
+    .navbar_logo_list {
+      display: grid;
+      margin: auto;
+      grid-template-rows: none;
+      grid-template-columns: 33% 33% 33%;
+
+      .logo_nav {
+        margin: 15px;
+      }
+    }
+  }
+}

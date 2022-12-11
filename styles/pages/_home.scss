@@ -141,3 +141,39 @@
     }
   }
 }
+
+@media screen and (max-width: 860px) {
+  .home {
+    .profile_img {
+      img {
+        width: 200px !important;
+        height: 250px !important;
+      }
+    }
+
+    .main_text {
+      margin-left: 1%;
+
+      h2 {
+        font-size: 30px;
+      }
+      h3 {
+        font-size: 20px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .home {
+    .main_text {
+      margin-left: 5%;
+      h2 {
+        font-size: 20px;
+      }
+      h3 {
+        font-size: 15px;
+      }
+    }
+  }
+}

@@ -13,3 +13,16 @@
     width: 210px;
   }
 }
+
+@media screen and (max-width: 1250px) {
+  .left_border {
+    height: 99vh;
+  }
+}
+
+
+@media screen and (max-width: 650px) {
+    .left_border {
+      display: none;
+    }
+}

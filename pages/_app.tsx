@@ -1,4 +1,5 @@
 import type { AppProps } from 'next/app'
+import React, { useEffect, useState } from "react";
 import Border from '../components/Border'
 import Footer from '../components/Footer'
 import Header from '../components/Header'

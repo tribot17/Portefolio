@@ -20,10 +20,10 @@ const Experience = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: "-200px" }}
-      animate={{ opacity: 1, y: "0px"  }}
+      animate={{ opacity: 1, y: "-50%"  }}
       transition={{ duration: 0.5 }}
+      className="experiences"
     >
-      <div className="experiences">
         <div className="experiences_container">
           <div className="experiences_text">
             <Image
@@ -45,7 +45,6 @@ const Experience = () => {
             />
           </div>
         </div>
-      </div>
     </motion.div>
   );
 };

@@ -85,12 +85,11 @@ const Nav = () => {
       transition={{ duration: 1 }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      className="navbar"
     >
-      <div className="navbar">
         <ul className="navbar_logo_list">
           <DisplayLogo />
         </ul>
-      </div>
     </motion.div>
   );
 };

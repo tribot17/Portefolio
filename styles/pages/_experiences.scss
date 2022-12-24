@@ -46,6 +46,7 @@
 
         &:hover {
           cursor: pointer;
+          margin-left:-20px;
           transform: scale(1.1);
         }
       }
@@ -55,9 +56,9 @@
         bottom: 0;
         transition: 0.5s;
         transform: translate(-50%, 0%);
-        // margin-right: 50px;
         &:hover {
           cursor: pointer;
+          margin-left:-20px;
           transform: scale(1.1);
         }
       }

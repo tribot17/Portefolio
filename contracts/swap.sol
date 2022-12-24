@@ -1,5 +1,19 @@
 pragma solidity 0.8.17;
 
+interface IWETH {
+    function deposit() external payable;
+
+    function withdraw(uint wad) external; 
+
+    function approve(address guy, uint wad) external returns (bool);
+
+    function transfer(address dst, uint wad) external returns (bool);
+    
+    function transferFrom(address src, address dst, uint wad)
+        external
+        returns (bool);
+}
+
 interface IERC20 {
     event Transfer(address indexed from, address indexed to, uint256 value);
 
@@ -100,10 +114,13 @@ interface ISwapRouter is IUniswapV3SwapCallback {
 contract Swap {
     ISwapRouter swapRouter;
 
+    IWETH WETH;
+
     uint24 public constant poolFee = 3000;
 
-    constructor(address _swapRouter) public {
+    constructor(address _swapRouter, address _WETH) {
         swapRouter = ISwapRouter(_swapRouter);
+        WETH = IWETH(_WETH);
     }
 
     function swap(
@@ -112,6 +129,8 @@ contract Swap {
         uint256 _amount
     ) external returns (uint256 amountOut) {
         IERC20(_token1).transferFrom(msg.sender, address(this), _amount);
+        IERC20(_token1).approve(address(swapRouter), _amount);
+        
 
         ISwapRouter.ExactInputSingleParams memory params = ISwapRouter
             .ExactInputSingleParams({
@@ -126,8 +145,5 @@ contract Swap {
             });
 
         amountOut = swapRouter.exactInputSingle(params);
-        // IERC20(_token1).approve(msg.sender, _amount);
-        //getPath
-        //getAmountMin
     }
 }

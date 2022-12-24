@@ -5,6 +5,7 @@ import { tokenList } from "../../data/tokenList";
 import { token } from "../../interfaces/interface";
 import Image from "next/image";
 import { ethers } from "ethers";
+<<<<<<< HEAD
 import ERC20 from "../../contracts/ABI/ERC20.json";
 import WETH from "../../contracts/ABI/WETH.json";
 
@@ -13,6 +14,8 @@ interface swapToken {
   buyToken:object,
   sellToken:object
 }
+=======
+>>>>>>> a89f379768492cb7df0d0bfbdfe709110c731489
 
 const Index = () => {
   const [web3, setWeb3] = useState<any>();
@@ -27,7 +30,76 @@ const Index = () => {
   // const [sellTokenBalance, setSellTokenBalance] = useState<number>(0);
   const [sellToken, setSellToken] = useState<token>(tokenList[2]);
   const [account, setAccount] = useState<any>(undefined);
+<<<<<<< HEAD
   const [provider, setProvider] = useState<any>();
+=======
+
+  useEffect(() => {
+    getCurrentWalletConnected();
+    addWalletListener();
+    onChainChange();
+  }, [account]);
+
+  const onChainChange = () => {
+    window.ethereum.on("chainChanged", async () => {
+      const provider = handleWeb3(window.ethereum);
+      const network = await provider.getNetwork();
+
+      if (network.name !== "goerli")
+        alert("The contract is host on the goerli tesnet");
+    });
+  };
+
+  const handleWalletConnect = async () => {
+    if (undefined && !account) {
+      if (typeof window != "undefined" && typeof window.ethereum) {
+        const { ethereum } = window;
+        const accounts = await ethereum.request({
+          method: "eth_requestAccounts",
+        });
+        setAccount(accounts[0]);
+        handleWeb3(ethereum);
+      } else {
+        alert("You need to install a wallet");
+      }
+    }
+  };
+
+  const handleWeb3 = (ethereum: any) => {
+    const provider = new ethers.providers.Web3Provider(ethereum);
+    setWeb3(provider);
+    return provider;
+  };
+
+  const getCurrentWalletConnected = async () => {
+    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+      try {
+        const { ethereum } = window;
+        const accounts = await window.ethereum.request({
+          method: "eth_accounts",
+        });
+        if (accounts.length > 0) {
+          setAccount(accounts[0]);
+        } else {
+          console.log("Connect to MetaMask using the Connect button");
+        }
+      } catch (err) {
+        console.error(err.message);
+      }
+    }
+  };
+
+  const addWalletListener = async () => {
+    if (typeof window != "undefined" && typeof window.ethereum != "undefined") {
+      window.ethereum.on("accountsChanged", async (accounts) => {
+        setAccount(accounts[0]);
+      });
+    } else {
+      setAccount("");
+      console.log("Please install MetaMask");
+    }
+  };
+>>>>>>> a89f379768492cb7df0d0bfbdfe709110c731489
 
   useEffect(() => {
     setProvider(detectProvider());
@@ -125,6 +197,7 @@ const Index = () => {
       >
         <div className="swap">
           <div className="swap_container">
+<<<<<<< HEAD
             <div className="wallet_connect" onClick={onLoginHandler}>
               <p>
                 {account && account.length > 0
@@ -133,17 +206,32 @@ const Index = () => {
                       6
                     )}...${account.substring(38)}`
                   : "Connecter votre wallet"}
+=======
+            <div className="wallet_connect" onClick={handleWalletConnect}>
+              <p>
+                  {account && account.length > 0
+                    ? `Connected: ${account.substring(
+                        0,
+                        6
+                      )}...${account.substring(38)}`
+                    : "Connecter votre wallet"}
+
+>>>>>>> a89f379768492cb7df0d0bfbdfe709110c731489
               </p>
             </div>
             <div className="swap_text">
               <h1>Swap</h1>
               <div className="swap_input">
                 <div className="input_and_token">
+<<<<<<< HEAD
                   <input
                     type={"number"}
                     min="0"
                     placeholder={tokens.buyToken.balance.toFixed(4)}
                   />
+=======
+                  <input type={"number"} min="0" placeholder="0" />
+>>>>>>> a89f379768492cb7df0d0bfbdfe709110c731489
                   <div
                     className="select_token"
                     onClick={() => {

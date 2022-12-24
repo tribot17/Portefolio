@@ -8,6 +8,7 @@
 
   .swap_container {
     display: flex;
+    position: relative;
     background-color: white;
     width: 1200px;
     height: 592px;
@@ -15,6 +16,25 @@
     border-radius: 112px;
     box-shadow: 1px 1px 35px 5px rgba(118, 122, 122, 0.19);
     justify-content: center;
+
+    .wallet_connect {
+      display: flex;
+      position: absolute;
+      margin-top: 5%;
+      width: 250px;
+      height: 50px;
+      box-shadow: 1px 1px 35px 5px rgba(118, 122, 122, 0.19);
+      border-radius: 112px;
+      transition: 1s;
+      p {
+        margin: auto;
+      }
+
+      &:hover {
+        cursor: pointer;
+        transform: scale(1.01);
+      }
+    }
 
     .swap_text {
       display: flex;

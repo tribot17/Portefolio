@@ -8,9 +8,25 @@ import { ethers } from "ethers";
 import ERC20 from "../../contracts/ABI/ERC20.json";
 import WETH from "../../contracts/ABI/WETH.json";
 
+interface tokenInfo {
+  name: string;
+  address: string;
+  symbol: string;
+  logo: string;
+}
+
+interface tokenI {
+  token: tokenInfo;
+  balance: number | string;
+}
+
 interface swapToken {
-  buyToken: object;
-  sellToken: object;
+  buyToken: tokenI;
+  sellToken: tokenI;
+}
+
+interface Window {
+  ethereum?: any;
 }
 
 const Index = () => {
@@ -21,43 +37,29 @@ const Index = () => {
     buyToken: { token: tokenList[0], balance: 0 },
     sellToken: { token: tokenList[1], balance: 0 },
   });
-  // const [buyToken, setBuyToken] = useState<token>(tokenList[0]);
-  // const [buyTokenBalance, setBuyTokenBalance] = useState<number>(0);
-  // const [sellTokenBalance, setSellTokenBalance] = useState<number>(0);
-  const [sellToken, setSellToken] = useState<token>(tokenList[2]);
   const [account, setAccount] = useState<any>(undefined);
   const [provider, setProvider] = useState<any>();
+  // const ethWindow: Window & typeof globalThis = window;
+  // useEffect(() => {
+  // setProvider(detectProvider());
+  // if (provider) onLogin();
+  // }, []);
 
-  useEffect(() => {
-    setProvider(detectProvider());
-    onLogin();
-  }, []);
+  // const onLogin = async () => {
+  //   const web3 = await new Web3(provider);
+  //   setWeb3(web3);
+  // };
 
-  useEffect(() => {
-    // getTokenBalance();
-    console.log(tokens)
-  }, [tokens]);
+  // const detectProvider = () => {
+  //   let provider;
+  //   if (ethWindow.ethereum) {
+  //     provider = ethWindow.ethereum;
+  //   } else {
+  //     alert("No wallet detected, check out MetaMask");
+  //   }
 
-  const onLogin = async () => {
-    const web3 = await new Web3(provider);
-    setWeb3(web3);
-    console.log(web3);
-    // getUserBalance();
-  };
-
-  const detectProvider = () => {
-    let provider;
-    if (window.ethereum) {
-      provider = window.ethereum;
-    } else if (window.web3) {
-      provider = window.web3.currentProvider;
-    } else {
-      alert("No wallet detected, check out MetaMask");
-    }
-    // console.log(provider.)
-
-    return provider;
-  };
+  //   return provider;
+  // };
 
   const onLoginHandler = async () => {
     setAccount(
@@ -67,15 +69,17 @@ const Index = () => {
         })
       )[0]
     );
-    onLogin();
+    // onLogin();
   };
 
   const getTokenBalance = async (token: token) => {
     if (token !== tokenList[0]) {
       let contract = new web3.eth.Contract(ERC20, token.address);
-      return (parseInt(await contract.methods.balanceOf(account).call()) / 10 ** 18);
+      return (
+        parseInt(await contract.methods.balanceOf(account).call()) / 10 ** 18
+      );
     } else {
-      return (parseInt(await web3.eth.getBalance(account)) / 10 ** 18);
+      return parseInt(await web3.eth.getBalance(account)) / 10 ** 18;
     }
   };
 
@@ -94,11 +98,17 @@ const Index = () => {
                   buy
                     ? setTokens({
                         ...tokens,
-                        buyToken: { token, balance: await getTokenBalance(token) },
+                        buyToken: {
+                          token,
+                          balance: await getTokenBalance(token),
+                        },
                       })
                     : setTokens({
                         ...tokens,
-                        sellToken: { token, balance: await getTokenBalance(token) },
+                        sellToken: {
+                          token,
+                          balance: await getTokenBalance(token),
+                        },
                       });
                   setOpen(false);
                 }}
@@ -130,80 +140,78 @@ const Index = () => {
   return (
     <>
       <motion.div
+        className="swap"
         initial={{ opacity: 0, y: "-200px" }}
-        animate={{ opacity: 1, y: "0px" }}
+        animate={{ opacity: 1, y: "-50%" }}
         transition={{ duration: 0.5 }}
       >
-        <div className="swap">
-          <div className="swap_container">
-            <div className="wallet_connect" onClick={onLoginHandler}>
-              <p>
-                {account && account.length > 0
-                  ? `Connected: ${account.substring(
-                      0,
-                      6
-                    )}...${account.substring(38)}`
-                  : "Connecter votre wallet"}
-              </p>
-            </div>
-            <div className="swap_text">
-              <h1>Swap</h1>
-              <div className="swap_input">
-                <div className="input_and_token">
-                  <input
-                    type={"number"}
-                    min="0"
-                    placeholder={tokens.buyToken.balance.toFixed(4)}
+        <div className="swap_container">
+          <div className="wallet_connect" onClick={onLoginHandler}>
+            <p>
+              {account && account.length > 0
+                ? `Connected: ${account.substring(0, 6)}...${account.substring(
+                    38
+                  )}`
+                : "Connecter votre wallet"}
+            </p>
+          </div>
+          <div className="swap_text">
+            <h1>Swap</h1>
+            <div className="swap_input">
+              <div className="input_and_token">
+                <input
+                  type={"number"}
+                  min="0"
+                  placeholder={(+tokens.buyToken.balance).toFixed(4)}
+                />
+                <div
+                  className="select_token"
+                  onClick={() => {
+                    setBuyOrSell(true);
+                    setOpen(true);
+                  }}
+                >
+                  <Image
+                    id="arrow_down"
+                    src="/images/arrow_down_token.png"
+                    alt={tokens.buyToken.token.name}
+                    width={30}
+                    height={20}
                   />
-                  <div
-                    className="select_token"
-                    onClick={() => {
-                      setBuyOrSell(true);
-                      setOpen(true);
-                    }}
-                  >
-                    <Image
-                      id="arrow_down"
-                      src="/images/arrow_down_token.png"
-                      alt={tokens.buyToken.token.name}
-                      width={30}
-                      height={20}
-                    />
-                    <Image
-                      src={tokens.buyToken.token.logo}
-                      alt={tokens.buyToken.token.name}
-                      width={50}
-                      height={50}
-                    />
-                  </div>
+                  <Image
+                    src={tokens.buyToken.token.logo}
+                    alt={tokens.buyToken.token.name}
+                    width={50}
+                    height={50}
+                  />
                 </div>
-                <div className="input_and_token">
-                  <input
-                    type={"number"}
-                    min="0"
-                    placeholder={tokens.sellToken.balance.toFixed(4)}
+              </div>
+              <div className="input_and_token">
+                <input
+                  type={"number"}
+                  min="0"
+                  placeholder={(+tokens.sellToken.balance).toFixed(4)}
+                />
+                <div
+                  className="select_token"
+                  onClick={() => {
+                    setBuyOrSell(false);
+                    setOpen(true);
+                  }}
+                >
+                  <Image
+                    id="arrow_down"
+                    src="/images/arrow_down_token.png"
+                    alt={tokens.sellToken.token.name}
+                    width={30}
+                    height={20}
                   />
-                  <div
-                    className="select_token"
-                    onClick={() => {
-                      setBuyOrSell(false);
-                      setOpen(true);
-                    }}
-                  >
-                    <Image
-                      id="arrow_down"
-                      src="/images/arrow_down_token.png"
-                      alt={tokens.sellToken.balance.name}
-                      width={30}
-                      height={20}
-                    />
-                    <Image
-                      src={tokens.sellToken.token.logo}
-                      alt={tokens.sellToken.token.name}
-                      width={50}
-                      height={50}
-                    />
-                  </div>
+                  <Image
+                    src={tokens.sellToken.token.logo}
+                    alt={tokens.sellToken.token.name}
+                    width={50}
+                    height={50}
+                  />
                 </div>
               </div>
             </div>

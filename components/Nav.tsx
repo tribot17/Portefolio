@@ -47,7 +47,7 @@ const Nav = () => {
     return (
       <>
         <li className="logo_nav">
-          <Link href={`${toLoad.logo_1}`}>
+          <Link href={`${toLoad.logo_1.toLowerCase()}`}>
             <Image
               src={`/images/${toLoad.logo_1}.png`}
               alt={`${toLoad.logo_1}_logo`}
@@ -57,7 +57,11 @@ const Nav = () => {
           </Link>
         </li>
         <li className="logo_nav">
-          <Link href={`${toLoad.logo_2 == "Home" ? "/" : toLoad.logo_2}`}>
+          <Link
+            href={`${
+              toLoad.logo_2 == "Home" ? "/" : toLoad.logo_2.toLowerCase()
+            }`}
+          >
             <Image
               src={`/images/${toLoad.logo_2}.png`}
               alt={`${toLoad.logo_2}_logo`}
@@ -67,7 +71,7 @@ const Nav = () => {
           </Link>
         </li>
         <li className="logo_nav">
-          <Link href={`${toLoad.logo_3}`}>
+          <Link href={`${toLoad.logo_3.toLowerCase()}`}>
             <Image
               src={`/images/${toLoad.logo_3}.png`}
               alt={`${toLoad.logo_3}_logo`}
@@ -87,9 +91,9 @@ const Nav = () => {
       animate={{ opacity: 1 }}
       className="navbar"
     >
-        <ul className="navbar_logo_list">
-          <DisplayLogo />
-        </ul>
+      <ul className="navbar_logo_list">
+        <DisplayLogo />
+      </ul>
     </motion.div>
   );
 };

@@ -20,31 +20,31 @@ const Experience = () => {
   return (
     <motion.div
       initial={{ opacity: 0, y: "-200px" }}
-      animate={{ opacity: 1, y: "-50%"  }}
+      animate={{ opacity: 1, y: "-50%" }}
       transition={{ duration: 0.5 }}
       className="experiences"
     >
-        <div className="experiences_container">
-          <div className="experiences_text">
-            <Image
-              src={"/images/arrow.png"}
-              alt={"arrow_up"}
-              className="arrow_up"
-              width={45}
-              height={45}
-              onClick={changeExp}
-            />
-            <DisplayExperiences {...expArray[indexExp]} />
-            <Image
-              src={"/images/arrow_down.png"}
-              alt={"arrow_down"}
-              className="arrow_down"
-              width={45}
-              height={45}
-              onClick={changeExp}
-            />
-          </div>
+      <div className="experiences_container">
+        <div className="experiences_text">
+          <Image
+            src={"/images/arrow.png"}
+            alt={"arrow_up"}
+            className="arrow_up"
+            width={45}
+            height={45}
+            onClick={changeExp}
+          />
+          <DisplayExperiences {...expArray[indexExp]} />
+          <Image
+            src={"/images/arrow_down.png"}
+            alt={"arrow_down"}
+            className="arrow_down"
+            width={45}
+            height={45}
+            onClick={changeExp}
+          />
         </div>
+      </div>
     </motion.div>
   );
 };

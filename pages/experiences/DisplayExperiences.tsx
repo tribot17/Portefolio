@@ -7,7 +7,7 @@ const DisplayExperiences = (exp: experience) => {
   return (
     <motion.div
       key={exp.title}
-      initial={{ opacity: 0, y: -200 }}
+      initial={{ opacity: 0, y: "-200px" }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 1 }}
     >

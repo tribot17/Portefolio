@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import Head from "next/head";
-import MainPage from "./home/index";
+import MainPage from "./home/MainPage";
 
 export const Home: NextPage = () => {
   return (
